@@ -1,41 +1,26 @@
 # Mindstone Py
 
 ## Overview
-Mindstone Py is a Python application that interacts with an API to generate chat completions using a specified model. The application is designed to be run in a Docker container for easy setup and deployment.
+Mindstone Py is a set of Python scripts that interacts with an OpenAI style API to generate chat completions using a QWEN2.5 model. The application can run locally, in a Docker container, or a devcontaner for easy setup.
 
-## Project Structure
-```
-mindstone-py
-├── main.py          # Main logic of the application
-├── requirements.txt # Python dependencies
-├── Dockerfile       # Docker instructions
-└── README.md        # Project documentation
-```
+The code uses Docker's Model support, but changes to use Ollama or another AI engine should be trivial. You'll need to change the hostname (and maybe endpoint) of the "OpenAI" API URL. An API Key maybe needed 
 
 ## Requirements
-Make sure you have Docker installed on your machine to build and run the application.
+The runtime must have Python 3.
 
 ## Setup
 1. Clone the repository or download the project files.
-2. Navigate to the project directory.
+2. Run with your preferred method:
+    1. Open the project in VS Code and activate the devcontainer when prompted.
+    2. Build (`docker build -t mindstone-py .` and run the container (`docker run -it mindstone-py`).
+    3. Run the project locally. Besure to run `pip install -r requirements.txt` to install the dependencies.
 
 ## Running the Application
-To build and run the application using Docker, execute the following commands:
-
-1. Build the Docker image:
-   ```
-   docker build -t mindstone-py .
-   ```
-
-2. Run the Docker container:
-   ```
-   docker run mindstone-py
-   ```
+Each version has a README.md with the appropriate commands to run the scipts. (Local runs will need slight modifications of the commands to run)
 
 ## Dependencies
 The project requires the following Python packages, which are listed in `requirements.txt`:
 - requests
-- json
 
 ## License
 This project is licensed under the MIT License.
