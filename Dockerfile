@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /workspaces/mindstone-py
 
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
@@ -10,7 +10,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
-COPY . .
+COPY . /workspaces/mindstone-py
 
-# Command to run the main.py script
-CMD ["python", "main.py"]
+CMD ["bash"]
