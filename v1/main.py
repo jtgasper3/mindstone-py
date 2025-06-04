@@ -1,6 +1,16 @@
 import json
 import requests
 
+# Define the model name
+model_name = "ai/qwen2.5"
+# model_name = "ai/qwen3"
+
+# OpenAI API endpoint
+url = "http://model-runner.docker.internal/engines/llama.cpp/v1/chat/completions"
+
+# Replace with your OpenAI API key
+api_key = "your-api-key"
+
 rag = """
 [SYSTEM]
 You are an access management analyst that helps help desk staff quickly understand why a user does not have access to their email. Limit your response to the information provided in the context. Responses should be concise and to the point, preferably one sentence.
@@ -32,13 +42,7 @@ Email provisioning flow:
 Given this json object about a user. Why might the user be having issues with their account?
 """
 
-def call_openai_api(prompt, api_key):
-    # OpenAI API endpoint
-    url = "http://model-runner.docker.internal/engines/llama.cpp/v1/chat/completions"
-    
-    # Define the model name
-    model_name = "ai/qwen2.5"
-
+def call_openai_api(prompt, api_key):    
     # Request headers
     headers = {
         "Content-Type": "application/json",
@@ -74,9 +78,6 @@ def call_openai_api(prompt, api_key):
         return f"Error parsing response: {str(e)}"
 
 def main():
-    # Replace with your OpenAI API key
-    api_key = "your-api-key"
-    
     # Example prompt
     userObject = """
     { 

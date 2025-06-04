@@ -6,11 +6,15 @@ from tools import tools, get_user_account_info
 
 debug = False
 
-# OpenAI API key
-api_key = "your_openai_api_key"
+# Define the model name
+model_name = "ai/qwen2.5"
+# model_name = "ai/qwen3"
 
 # OpenAI API endpoint
 url = "http://model-runner.docker.internal/engines/llama.cpp/v1/chat/completions"
+
+# OpenAI API key
+api_key = "your_openai_api_key"
 
 if len(sys.argv) > 1:
     netid = sys.argv[1]
@@ -22,7 +26,7 @@ else:
 
 # Define the initial prompt
 data = {
-    "model": "ai/qwen2.5",
+    "model": model_name,
     "messages": [
         {"role": "system", "content": f"You are an identity access management analyst that helps help desk staff quickly understand why a user does not have access to their email. Limit your response to the information provided in the context. Responses should be concise and to the point, preferably one sentence. Used this context to answer the user's question: {rag}"},
         {"role": "user", "content": f"Why might the user with netid `{netid}` be having issues with their account? Be as specific as possible about where the issue may lie."}
@@ -67,7 +71,7 @@ if choices:
 
             # Send tool execution result back (adjusting based on Qwen's response format)
             followup_data = {
-                "model": "ai/qwen2.5",
+                "model": model_name,
                 "messages": [
                     {"role": "system", "content": f"You are an identity access management analyst that helps help desk staff quickly understand why a user does not have access to their email. Limit your response to the information provided in the context. Responses should be concise and to the point, preferably one sentence. Used this context to answer the user's question: {rag}"},
                     {"role": "user", "content": f"Why might the user with netid `{netid}` be having issues with their account? Be as specific as possible about where the issue may lie."},

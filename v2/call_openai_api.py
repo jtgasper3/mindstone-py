@@ -1,17 +1,18 @@
 import json
 import requests
 
+# Define the model name
+model_name = "ai/qwen2.5"
+# model_name = "ai/qwen3"
+
+# OpenAI API endpoint
+url = "http://model-runner.docker.internal/engines/llama.cpp/v1/chat/completions"
+
 # Replace with your OpenAI API key
 api_key = "your-api-key"
 
 
-def call_openai_api(prompt):
-    # OpenAI API endpoint
-    url = "http://model-runner.docker.internal/engines/llama.cpp/v1/chat/completions"
-    
-    # Define the model name
-    model_name = "ai/qwen2.5"
-
+def call_openai_api(prompt):    
     # Request headers
     headers = {
         "Content-Type": "application/json",
