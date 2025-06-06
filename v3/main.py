@@ -41,14 +41,14 @@ headers = {
 }
 
 if debug:
-    print(data)
+    print(f"Request data: {data}")
 
 # Send the request
 response = requests.post(url, headers=headers, json=data)
 response_data = response.json()
 
 if debug:
-    print(response_data)
+    print(f"Response data: {response_data}")
 
 # Properly extract tool calls based on Qwen's response format
 choices = response_data.get("choices", [])

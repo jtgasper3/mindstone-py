@@ -5,7 +5,8 @@ Mindstone Py is a set of Python scripts that interacts with an OpenAI style API 
 
 - `v1`: demonstrates a conceptual use of Retrieval-Augmented Generation (RAG)
 - `v2`: demonstrates the LLM identifying issue with user email account using the RAG for its rules.
-- `v3`: Pivoting to formal OpenAI API model for building prompts, RAGs and tools (Agentic) demonstrating the LLM looking up account data before identifying the account issues.
+- `v3`: Pivoting to formal OpenAI API model for building prompts, RAGs and an initial (agentic) "tool"  demonstrating the LLM looking up account data before identifying the account issues.
+- `v4`: Providing additional (agentic) tools to the LLM and then asking the LLM to "fix" the accounts to see what it tries to do.
 
 > Note: The code uses Docker's model support, but changes to use Ollama or another AI engine should be trivial. You'll need to change the hostname (and maybe endpoint) of the "OpenAI" API URL. An API Key maybe needed 
 
