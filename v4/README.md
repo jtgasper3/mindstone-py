@@ -9,3 +9,29 @@ Note: We are going to initially, directly provide the account info to the model,
 /usr/local/bin/python /workspaces/mindstone-py/v4/main.py jtg69
 /usr/local/bin/python /workspaces/mindstone-py/v4/main.py jtg79
 ```
+
+Sample output:
+
+```
+$ /usr/local/bin/python /workspaces/mindstone-py/v4/main.py jtg59
+netid: jtg59
+Assistant response: The user's Active Directory account is disabled (`enabled`: False), which is why they are having issues with their account.
+```
+
+```
+$ /usr/local/bin/python /workspaces/mindstone-py/v4/main.py jtg69
+netid: jtg69
+Assistant response: The user `jtg69` is in the `grouper:Students` group but not in the `grouper:email:Eligible` group, which is required to have email access. I will request Grouper to add the user to the `grouper:email:Eligible` group and provision the necessary Active Directory group.
+
+Function call requested: provision_grouper_membership
+Arguments: {'netid': 'jtg69', 'groupid': 'grouper:email:Eligible'}
+```
+
+```
+$ /usr/local/bin/python /workspaces/mindstone-py/v4/main.py jtg79
+netid: jtg79
+Assistant response: The user `jtg79` is in the "grouper:email:Eligible" group, which is required to have email, and they are also in the "grouper:Students" group. However, they are not in any "grouper:licenses:M365_A5_" or "grouper:licenses:GSuite_" groups, which are necessary to provision the email system. I will request Grouper to add the user to the appropriate license group.
+
+Function call requested: provision_grouper_membership
+Arguments: {'netid': 'jtg79', 'groupid': 'grouper:licenses:M365_A5_'}
+```
