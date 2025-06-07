@@ -1,7 +1,9 @@
 # Mindstone Py
 
 ## Overview
-Mindstone Py is a set of Python scripts that interacts with an OpenAI style API to generate chat completions using qwen2.5/3 model. The application can run locally, in a Docker container, or a devcontaner for easy setup.
+Mindstone Py is a set of Python scripts that interacts with an OpenAI style API to generate chat completions using qwen2.5/3 model. The application can run locally, in a Docker container, or a [devcontaner](https://containers.dev/) for easy setup.
+
+While we are using "conversations" to interact with the AI, it is the python script(s) that is conversing with the LLM. There is no direct user interaction being conducted here. This style of integration would lend itself to being incorporated into something like Help Desk tooling, where we don't expect the help desk operator to converse with the AI, but to simply request "account troubleshooting" from the application menu and the operator being given the final output/response from the LLM. Another way of thinking about this is that the Python app is the "user" of the LLM, not the human operator.
 
 - `v1`: demonstrates a conceptual use of Retrieval-Augmented Generation (RAG)
 - `v2`: demonstrates the LLM identifying issue with user email account using the RAG for its rules.
