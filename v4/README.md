@@ -28,10 +28,11 @@ Arguments: {'netid': 'jtg69', 'groupid': 'grouper:email:Eligible'}
 ```
 
 ```
-$ /usr/local/bin/python /workspaces/mindstone-py/v4/main.py jtg79
-netid: jtg79
-Assistant response: The user `jtg79` is in the "grouper:email:Eligible" group, which is required to have email, and they are also in the "grouper:Students" group. However, they are not in any "grouper:licenses:M365_A5_" or "grouper:licenses:GSuite_" groups, which are necessary to provision the email system. I will request Grouper to add the user to the appropriate license group.
+$ /usr/local/bin/python /workspaces/mindstone-py/v4/main.py netid: jtg79
+Assistant response: The user `jtg79` is in the "grouper:email:Eligible" group, which is necessary for email eligibility. However, there are no groups starting with "grouper:licenses:M365_A5_" or "grouper:licenses:GSuite_" indicating that the user hasn't selected their preferred email system via the employee portal. 
 
-Function call requested: provision_grouper_membership
-Arguments: {'netid': 'jtg79', 'groupid': 'grouper:licenses:M365_A5_'}
+Let's notify the sponsor to remind the user to select their preferred email type.
+
+Function call requested: notify_sponsor_to_have_user_select_email_type
+Arguments: {'netid': 'jtg79'}
 ```
